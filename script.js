@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
         let planet = pickPlanet(listedPlanets);
-        
+
         addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
     })
 
@@ -31,8 +31,7 @@ window.addEventListener("load", function () {
         if (validateInput(pilotName) === "Empty"
             || validateInput(copilotName) === "Empty" ||
             validateInput(fuelLevel) === "Empty" ||
-            validateInput(cargoMass) === "Empty"
-        ) {
+            validateInput(cargoMass) === "Empty") {
             window.alert("All fields are required!")
         }
         else if (validateInput(pilotName) !== "Not a Number"
@@ -41,11 +40,8 @@ window.addEventListener("load", function () {
             || validateInput(cargoMass) !== "Is a Number") {
             window.alert("Make sure to enter valid information for each field!")
         }
-
-        formSubmission(document, list, pilotName, copilotName, fuelLevel, cargoMass);
+        else {
+            formSubmission(document, list, pilotName, copilotName, fuelLevel, cargoMass);
+        }
     });
-
-    // function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-
-
 });

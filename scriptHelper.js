@@ -13,18 +13,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             <li>Number of Moons: ${moons} </li>
         </ol>
         <img src="${imageUrl}">`
-    // Here is the HTML formatting for our mission target div.
-    /*
-                 <h2>Mission Destination</h2>
-                 <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
-                     <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
-                 </ol>
-                 <img src="">
-    */
 }
 
 function validateInput(testInput) {
@@ -40,13 +28,15 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     list.style.visibility = "visible";
     document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
-    document.getElementById("copilotStatus").innerHTML = `Co-pilot ${pilot} is ready for launch`;
+    document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
     if (fuelLevel < 10000) {
         document.getElementById("launchStatus").innerText = "Shuttle not ready for launch";
         document.getElementById("launchStatus").style.color = "red";
         document.getElementById("fuelStatus").innerText = "Fuel level too low for launch";
         ready = false;
+    } else {
+        document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
     }
 
     if (cargoLevel > 10000) {
@@ -54,6 +44,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         document.getElementById("launchStatus").style.color = "red";
         document.getElementById("cargoStatus").innerText = "Cargo mass too heavy for launch";
         ready = false;
+    } else {
+        document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
     }
 
     if (ready) {
